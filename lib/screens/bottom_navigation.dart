@@ -1,35 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
-class BottomNavigation extends StatelessWidget {
+class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
 
   @override
+  State<BottomNavigation> createState() => _BottomNavigationState();
+}
+
+class _BottomNavigationState extends State<BottomNavigation> {
+  int _selectIndex = 0;
+  final List<Widget> _widgetOptions = <Widget>[
+    Text("Home"),
+    Text("Location"),
+    Text("Category"),
+    Text("User"),
+  ];
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration:
-          BoxDecoration(color: Theme.of(context).colorScheme.background),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    decoration: BoxDecoration(color: Colors.amber),
-                  )),
-              Expanded(
-                  flex: 3,
-                  child: Container(
-                    decoration: BoxDecoration(color: Colors.red),
-                  ))
-            ],
-          ),
-        ),
-      ),
+    return Scaffold(
+      body: SafeArea(child: _widgetOptions.elementAt(_selectIndex)),
+      bottomNavigationBar: GNav(
+          haptic: true,
+          curve: Curves.easeIn,
+          gap: 8,
+          tabBackgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          backgroundColor: Theme.of(context).colorScheme.background,
+          tabBorderRadius: 25,
+          activeColor: Theme.of(context).colorScheme.onPrimaryContainer,
+          tabMargin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          tabs: const [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+            ),
+            GButton(icon: Icons.location_on, text: 'location'),
+            GButton(icon: Icons.list, text: 'category'),
+            GButton(icon: Icons.person_pin_rounded, text: 'user'),
+          ],
+          selectedIndex: _selectIndex,
+          onTabChange: (index) {
+            setState(() {
+              _selectIndex = index;
+            });
+          }),
     );
   }
 }
