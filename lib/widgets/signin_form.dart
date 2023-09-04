@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yejung_flutter_app/screens/category.dart';
 
 class SignInFrom extends StatefulWidget {
   const SignInFrom({super.key});
@@ -76,10 +77,10 @@ class _SignInFromState extends State<SignInFrom> {
                   //     isSignIn = "error";
                   //   });
                   // }
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const BottomNavigation()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CategoryScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
