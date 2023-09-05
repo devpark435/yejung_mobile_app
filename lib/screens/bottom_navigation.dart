@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:yejung_flutter_app/screens/home.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -10,8 +11,8 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectIndex = 0;
-  final List<Widget> _widgetOptions = <Widget>[
-    Text("Home"),
+  static final List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
     Text("Location"),
     Text("Category"),
     Text("User"),
@@ -19,7 +20,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: _widgetOptions.elementAt(_selectIndex)),
+      body: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: _widgetOptions.elementAt(_selectIndex)),
       bottomNavigationBar: GNav(
           haptic: true,
           curve: Curves.easeIn,
