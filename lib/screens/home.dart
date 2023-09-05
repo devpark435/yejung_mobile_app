@@ -13,9 +13,41 @@ class HomeScreen extends StatelessWidget {
         ClipPath(
           clipper: WaveClipperOne(),
           child: Container(
+            width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * .3,
             color:
                 Theme.of(context).colorScheme.primaryContainer.withOpacity(0.7),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, bottom: 100),
+              child: Row(
+                children: [
+                  const FaIcon(
+                    FontAwesomeIcons.cross,
+                    color: Colors.white,
+                    size: 42,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("예정교회",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge!
+                              .apply(color: Colors.white, fontWeightDelta: 3)),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Text("중고등부",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .apply(
+                                    color: Colors.white, fontWeightDelta: 3)),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
           ),
         ),
         Container(
