@@ -10,12 +10,11 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int _selectIndex = 0;
+  int _selectIndex = 1;
   static final List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
     Text("Location"),
+    HomeScreen(),
     Text("Category"),
-    Text("User"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,21 +26,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
       bottomNavigationBar: GNav(
           haptic: true,
           curve: Curves.easeIn,
-          gap: 8,
+          gap: 3,
           tabBackgroundColor: Theme.of(context).colorScheme.primaryContainer,
           backgroundColor: Theme.of(context).colorScheme.background,
           tabBorderRadius: 25,
           activeColor: Theme.of(context).colorScheme.onPrimaryContainer,
-          tabMargin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          tabMargin: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           tabs: const [
+            GButton(icon: Icons.location_on, text: 'location'),
             GButton(
               icon: Icons.home,
               text: 'Home',
             ),
-            GButton(icon: Icons.location_on, text: 'location'),
             GButton(icon: Icons.list, text: 'category'),
-            GButton(icon: Icons.person_pin_rounded, text: 'user'),
           ],
           selectedIndex: _selectIndex,
           onTabChange: (index) {
