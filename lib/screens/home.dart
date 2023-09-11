@@ -97,114 +97,224 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              child: FaIcon(FontAwesomeIcons.list),
-                            ),
-                            Text(
-                              "바로가기",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .apply(fontWeightDelta: 5),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
-                          decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.background,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer
-                                        .withOpacity(0.7),
-                                    blurRadius: 5,
-                                    offset: const Offset(0, 5))
-                              ],
-                              borderRadius: BorderRadius.circular(20)),
+                        Expanded(
+                          flex: 1,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Expanded(
-                                flex: 2,
-                                child: Text(
-                                  "온라인 예배",
-                                  textAlign: TextAlign.center,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .apply(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSurface,
-                                          fontWeightDelta: 3),
-                                ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                                child: FaIcon(FontAwesomeIcons.list),
                               ),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: FaIcon(
-                                          FontAwesomeIcons.youtube,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .error,
-                                          size: 40,
-                                        )),
-                                    Text(
-                                      "Youtube",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .apply(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSurface,
-                                              fontWeightDelta: 2),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.shareAlt,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurface,
-                                        size: 40,
-                                      ),
-                                    ),
-                                    Text(
-                                      "링크 공유",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .apply(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSurface,
-                                              fontWeightDelta: 2),
-                                    )
-                                  ],
-                                ),
+                              Text(
+                                "바로가기",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .apply(fontWeightDelta: 5),
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        Expanded(
+                            flex: 3,
+                            child: PageView(
+                              children: [
+                                /**온라인 예배 바로가기 Container */
+                                Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primaryContainer
+                                                .withOpacity(0.7),
+                                            blurRadius: 5,
+                                            offset: const Offset(0, 5))
+                                      ],
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 2,
+                                        child: Text(
+                                          "온라인 예배",
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge!
+                                              .apply(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSurface,
+                                                  fontWeightDelta: 3),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            IconButton(
+                                                onPressed: () {},
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.youtube,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .error,
+                                                  size: 40,
+                                                )),
+                                            Text(
+                                              "Youtube",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .apply(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface,
+                                                      fontWeightDelta: 2),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {},
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.shareAlt,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface,
+                                                size: 40,
+                                              ),
+                                            ),
+                                            Text(
+                                              "링크 공유",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .apply(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface,
+                                                      fontWeightDelta: 2),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primaryContainer
+                                                .withOpacity(0.7),
+                                            blurRadius: 5,
+                                            offset: const Offset(0, 5))
+                                      ],
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 2,
+                                        child: Text(
+                                          "온라인 예배",
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge!
+                                              .apply(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSurface,
+                                                  fontWeightDelta: 3),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            IconButton(
+                                                onPressed: () {},
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.youtube,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .error,
+                                                  size: 40,
+                                                )),
+                                            Text(
+                                              "Youtube",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .apply(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface,
+                                                      fontWeightDelta: 2),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {},
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.shareAlt,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface,
+                                                size: 40,
+                                              ),
+                                            ),
+                                            Text(
+                                              "링크 공유",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .apply(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface,
+                                                      fontWeightDelta: 2),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ))
                       ],
                     ),
                   ))
